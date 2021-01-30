@@ -1,16 +1,26 @@
 import React, { Fragment } from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/core';
 // import classes from '*.module.css';
+import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
 import CartItem from './CarItem/CartItem';
 
-const Cart = ({ cart }) => {
+const Cart = ({
+	cart,
+	handleUpdateCartQty,
+	handleRemoveFromCart,
+	handleEmptyCart,
+}) => {
 	const classes = useStyles();
 
 	const EmptyCart = () => (
 		<Typography className="subtitle1">
-			You have no items in your shopping cart, start adding some!
+			You have no items in your shopping cart,
+			<Link to="/" className={classes.link}>
+				start adding some
+			</Link>
+			!
 		</Typography>
 	);
 
