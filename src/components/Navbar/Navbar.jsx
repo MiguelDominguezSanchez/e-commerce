@@ -15,7 +15,7 @@ import logo from '../../assets/commerce.png';
 // import classes from '*.module.css';
 import useStyles from './styles';
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
 	const classes = useStyles();
 	return (
 		<Fragment>
@@ -33,7 +33,7 @@ const Navbar = () => {
 					<div className={classes.grow} />
 					<div className={classes.button}>
 						<IconButton aria-label="Show cart items" color="inherit">
-							<Badge badgeContent={2} color="secondary">
+							<Badge badgeContent={totalItems} color="secondary">
 								<ShoppingCart />
 							</Badge>
 						</IconButton>
