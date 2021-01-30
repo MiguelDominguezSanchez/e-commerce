@@ -30,12 +30,14 @@ const Checkout = ({ cart }) => {
 					type: 'cart',
 				});
 
+				console.log(token);
+
 				setCheckoutToken(token);
 			} catch (error) {}
 		};
 
 		generateToken();
-	}, []);
+	}, [cart]);
 
 	const Confirmation = () => <div>Confirmation</div>;
 
@@ -61,7 +63,11 @@ const Checkout = ({ cart }) => {
 							</Step>
 						))}
 					</Stepper>
-					{activeStep === steps.lenght ? <Confirmation /> : <Form />}
+					{activeStep === steps.lenght ? (
+						<Confirmation />
+					) : (
+						checkoutToken && <Form />
+					)}
 				</Paper>
 			</main>
 		</Fragment>
