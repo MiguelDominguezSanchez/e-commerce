@@ -15,7 +15,7 @@ const Cart = ({
 	const classes = useStyles();
 
 	const EmptyCart = () => (
-		<Typography className="subtitle1">
+		<Typography className="subtitle">
 			You have no items in your shopping cart,
 			<Link to="/" className={classes.link}>
 				start adding some
@@ -29,7 +29,11 @@ const Cart = ({
 			<Grid container spacing={3}>
 				{cart.line_items.map(item => (
 					<Grid item xs={12} sm={4} key={item.id}>
-						<CartItem item={item} />
+						<CartItem
+							item={item}
+							onUpdateCartQty={handleUpdateCartQty}
+							onRemoveFromCart={handleRemoveFromCart}
+						/>
 					</Grid>
 				))}
 			</Grid>
@@ -42,8 +46,9 @@ const Cart = ({
 						className={classes.emptyButton}
 						size="large"
 						type="button"
-						variant="container"
+						variant="contained"
 						color="secondary"
+						onClick={handleEmptyCart}
 					>
 						Empty Cart
 					</Button>
@@ -51,7 +56,7 @@ const Cart = ({
 						className={classes.checkoutButton}
 						size="large"
 						type="button"
-						variant="container"
+						variant="contained"
 						color="primary"
 					>
 						Checkout
