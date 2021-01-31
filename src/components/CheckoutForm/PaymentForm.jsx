@@ -44,9 +44,9 @@ const PaymentForm = ({
 					name: 'Primary',
 					street: shippingData.address1,
 					town_city: shippingData.city,
-					country_state: shippingData.shippingSubdivision,
+					county_state: shippingData.shippingSubdivision,
 					postal_zip_code: shippingData.zip,
-					country: shippingData.shipping,
+					country: shippingData.shippingCountry,
 				},
 				fulfillment: { shipping_method: shippingData.shippingOption },
 				payment: {
@@ -82,7 +82,7 @@ const PaymentForm = ({
 								<Button
 									type="submit"
 									variant="contained"
-									disabled={!stripe}
+									disabled={stripe}
 									color="primary"
 								>
 									Pay {checkoutToken.live.subtotal.formatted_with_symbol}

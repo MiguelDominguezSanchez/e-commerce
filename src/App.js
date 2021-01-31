@@ -49,10 +49,10 @@ const App = () => {
 		setCart(newCart);
 	};
 
-	const handleCaptureCheckouut = async (checkouttokenId, newOrder) => {
+	const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
 		try {
-			const incomingOrder = await commerce.checkouut.capture(
-				checkouttokenId,
+			const incomingOrder = await commerce.checkout.capture(
+				checkoutTokenId,
 				newOrder
 			);
 			setOrder(incomingOrder);
