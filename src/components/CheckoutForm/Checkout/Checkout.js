@@ -9,6 +9,7 @@ import {
 	Divider,
 	Button,
 	Link,
+	CssBaseline,
 } from '@material-ui/core';
 // import classes from '*.module.css';
 
@@ -102,6 +103,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
 	return (
 		<Fragment>
+			<CssBaseline />
 			<div className={classes.toolbar} />
 			<main className={classes.layout}>
 				<Paper className={classes.paper}>
